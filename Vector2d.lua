@@ -28,8 +28,13 @@ local vectorMetatable = {
 	end,
 	__le = function (v1, v2)
 		return v1.x <= v2.x and v1.y <= v2.y
+	end,
+
+	scale = function (self, scalar)
+		return Vector2d.new(self.x * scalar, self.y * scalar)
 	end
 }
+vectorMetatable.__index = vectorMetatable
 
 function Vector2d.new(x, y)
 	local xn = tonumber(x)
